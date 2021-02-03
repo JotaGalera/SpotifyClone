@@ -1,0 +1,3 @@
+# Spotify clone app
+
+Building Spotify clone app using SwiftUI ...
