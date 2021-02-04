@@ -10,4 +10,5 @@ import SwiftUI
 
 extension UIColor {
     static let darkGray = UIColor(named: "darkGray")
+    static let lightPurple = UIColor(named: "lightPurple")
 }
