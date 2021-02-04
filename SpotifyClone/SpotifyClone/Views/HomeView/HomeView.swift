@@ -36,6 +36,8 @@ struct HomeView: View {
                 .padding(.top,25)
                 .padding()
                 
+                PersonalPlaylistView()
+                
                 Spacer()
             }
         }

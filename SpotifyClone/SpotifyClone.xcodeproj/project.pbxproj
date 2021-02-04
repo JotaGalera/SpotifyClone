@@ -16,6 +16,8 @@
 		89330D9425CB401F008DDC5E /* BottomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89330D9325CB401F008DDC5E /* BottomNavigationBar.swift */; };
 		89330D9C25CB45E9008DDC5E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89330D9B25CB45E9008DDC5E /* Extensions.swift */; };
 		8945D22325CC903F0051DEA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945D22225CC903F0051DEA5 /* HomeView.swift */; };
+		8945D22B25CC9A620051DEA5 /* PersonalPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945D22A25CC9A620051DEA5 /* PersonalPlaylistCell.swift */; };
+		8945D23325CCA17D0051DEA5 /* PersonalPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945D23225CCA17D0051DEA5 /* PersonalPlaylistView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		89330D9325CB401F008DDC5E /* BottomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationBar.swift; sourceTree = "<group>"; };
 		89330D9B25CB45E9008DDC5E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8945D22225CC903F0051DEA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8945D22A25CC9A620051DEA5 /* PersonalPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPlaylistCell.swift; sourceTree = "<group>"; };
+		8945D23225CCA17D0051DEA5 /* PersonalPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPlaylistView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				8945D22225CC903F0051DEA5 /* HomeView.swift */,
+				8945D22A25CC9A620051DEA5 /* PersonalPlaylistCell.swift */,
+				8945D23225CCA17D0051DEA5 /* PersonalPlaylistView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -292,9 +298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8945D23325CCA17D0051DEA5 /* PersonalPlaylistView.swift in Sources */,
 				89330D9425CB401F008DDC5E /* BottomNavigationBar.swift in Sources */,
 				89330D6725CB37FB008DDC5E /* ContentView.swift in Sources */,
 				89330D6525CB37FB008DDC5E /* SpotifyCloneApp.swift in Sources */,
+				8945D22B25CC9A620051DEA5 /* PersonalPlaylistCell.swift in Sources */,
 				8945D22325CC903F0051DEA5 /* HomeView.swift in Sources */,
 				89330D9C25CB45E9008DDC5E /* Extensions.swift in Sources */,
 			);
