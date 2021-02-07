@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct PersonalPlaylistView: View {
+    @StateObject var personalPlaylistVM = PersonalPlaylistViewModel()
+    
     var body: some View {
         VStack {
-            HStack {
-                PersonalPlaylistCell(image: "likedSong", name: "Liked Song")
-                PersonalPlaylistCell(image: "queen", name: "Queen")
-            }
-            HStack {
-                PersonalPlaylistCell(image: "greenDay", name: "Green Day")
-                PersonalPlaylistCell(image: "izal", name: "Izal")
-            }
-            HStack {
-                PersonalPlaylistCell(image: "mostPopular", name: "Most Popular")
-                PersonalPlaylistCell(image: "workFromHome", name: "Work From Home")
+            ForEach(0..<personalPlaylistVM.playlists.count) { index in
+                if index % 2 == 0 {
+                    HStack {
+                        PersonalPlaylistCell(image: personalPlaylistVM.playlists[index].image, name: personalPlaylistVM.playlists[index].name)
+                        PersonalPlaylistCell(image: personalPlaylistVM.playlists[index+1].image, name: personalPlaylistVM.playlists[index+1].name)
+                    }
+                }
             }
         }
         .padding()
