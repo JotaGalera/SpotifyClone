@@ -11,35 +11,40 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
-            RadialGradient(gradient: Gradient(colors: [Color("lightPurple"), .black]),
-                           center: .topLeading,
-                           startRadius: 100,
-                           endRadius: 500)
-                .offset(y: -180.0)
-            
-            VStack {
-                HStack {
-                    Text("Good Evening")
-                        .modifier(TitleText())
-                        
-                    Spacer()
+        
+            ScrollView {
+                ZStack {
+                    RadialGradient(gradient: Gradient(colors: [Color("lightPurple"), .black]),
+                                   center: .topLeading,
+                                   startRadius: 100,
+                                   endRadius: 500)
+                        .offset(y: -180.0)
                     
-                    Button(action: {
-                        // TODO : open setting view
-                    }, label: {
-                        Image(systemName: "gearshape")
-                            .font(.system(size: 23))
-                    })
+                    VStack {
+                        HStack {
+                            Text("Good Evening")
+                                .modifier(TitleText())
+                                
+                            Spacer()
+                            
+                            Button(action: {
+                                // TODO : open setting view
+                            }, label: {
+                                Image(systemName: "gearshape")
+                                    .font(.system(size: 23))
+                            })
+                        }
+                        .foregroundColor(.white)
+                        .padding(.top,25)
+                        .padding()
+                        
+                        PersonalPlaylistView()
+                        
+                        PlaylistCollectionView()
+                        
+                        Spacer()
+                    }
                 }
-                .foregroundColor(.white)
-                .padding(.top,25)
-                .padding()
-                
-                PersonalPlaylistView()
-                
-                PlaylistCollectionsView(titleSection: "Recently played")
-                
-                Spacer()
             }
         }
     }

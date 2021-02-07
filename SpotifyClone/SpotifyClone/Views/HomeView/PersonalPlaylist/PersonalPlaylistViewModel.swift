@@ -10,7 +10,7 @@ import Foundation
 class PersonalPlaylistViewModel: ObservableObject {
     var playlists: [Playlist]
     
-    init(playlists: [Playlist] = Helper.personalPlaylist) {
+    init(playlists: [Playlist] = Helper.personalPlaylistArray) {
         self.playlists = playlists
     }
 }
