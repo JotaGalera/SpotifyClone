@@ -20,8 +20,7 @@ struct HomeView: View {
             VStack {
                 HStack {
                     Text("Good Evening")
-                        .font(.system(size: 25))
-                        .bold()
+                        .modifier(TitleText())
                         
                     Spacer()
                     
@@ -37,6 +36,8 @@ struct HomeView: View {
                 .padding()
                 
                 PersonalPlaylistView()
+                
+                PlaylistCollectionsView(titleSection: "Recently played")
                 
                 Spacer()
             }
