@@ -46,9 +46,3 @@ struct BottomNavigationBar_Previews: PreviewProvider {
         }
     }
 }
-
-struct MockView: View {
-    var body: some View {
-        Color.black.edgesIgnoringSafeArea(.all)
-    }
-}

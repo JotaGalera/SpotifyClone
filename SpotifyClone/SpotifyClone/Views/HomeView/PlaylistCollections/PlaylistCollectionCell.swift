@@ -10,12 +10,19 @@ import SwiftUI
 struct PlaylistCollectionCell: View {
     var image: String
     var name: String
+    var isPersonalized: Bool
     
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                Image(image)
-                    .resizable()
+                if isPersonalized {
+                    Image(image)
+                        .resizable()
+                        .cornerRadius(100)
+                } else {
+                    Image(image)
+                        .resizable()
+                }
                 
                 Text(name)
                     .font(.footnote)
@@ -30,6 +37,6 @@ struct PlaylistCollectionCell: View {
 
 struct PlaylistCollectionCell_Previews: PreviewProvider {
     static var previews: some View {
-        PlaylistCollectionCell(image: "likedSong", name: "Liked Songs")
+        PlaylistCollectionCell(image: "likedSong", name: "Liked Songs", isPersonalized: true)
     }
 }
