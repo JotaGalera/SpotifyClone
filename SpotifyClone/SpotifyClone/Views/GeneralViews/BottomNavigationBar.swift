@@ -16,7 +16,7 @@ struct BottomNavigationBar: View {
     
     var body: some View {
         TabView {
-            MockView()
+            HomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
