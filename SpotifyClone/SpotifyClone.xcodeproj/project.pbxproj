@@ -16,8 +16,11 @@
 		89330D9425CB401F008DDC5E /* BottomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89330D9325CB401F008DDC5E /* BottomNavigationBar.swift */; };
 		89330D9C25CB45E9008DDC5E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89330D9B25CB45E9008DDC5E /* Extensions.swift */; };
 		8945D22325CC903F0051DEA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945D22225CC903F0051DEA5 /* HomeView.swift */; };
-		8945D22B25CC9A620051DEA5 /* PersonalPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945D22A25CC9A620051DEA5 /* PersonalPlaylistCell.swift */; };
-		8945D23325CCA17D0051DEA5 /* PersonalPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8945D23225CCA17D0051DEA5 /* PersonalPlaylistView.swift */; };
+		89ACD26E25D007C700C7FD8A /* PlaylistCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD26C25D007C700C7FD8A /* PlaylistCollectionsView.swift */; };
+		89ACD26F25D007C700C7FD8A /* PlaylistCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD26D25D007C700C7FD8A /* PlaylistCollectionCell.swift */; };
+		89ACD27625D007E700C7FD8A /* PersonalPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD27425D007E700C7FD8A /* PersonalPlaylistView.swift */; };
+		89ACD27725D007E700C7FD8A /* PersonalPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD27525D007E700C7FD8A /* PersonalPlaylistCell.swift */; };
+		89ACD27F25D0080800C7FD8A /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD27E25D0080800C7FD8A /* ViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +56,11 @@
 		89330D9325CB401F008DDC5E /* BottomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationBar.swift; sourceTree = "<group>"; };
 		89330D9B25CB45E9008DDC5E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8945D22225CC903F0051DEA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8945D22A25CC9A620051DEA5 /* PersonalPlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPlaylistCell.swift; sourceTree = "<group>"; };
-		8945D23225CCA17D0051DEA5 /* PersonalPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPlaylistView.swift; sourceTree = "<group>"; };
+		89ACD26C25D007C700C7FD8A /* PlaylistCollectionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionsView.swift; sourceTree = "<group>"; };
+		89ACD26D25D007C700C7FD8A /* PlaylistCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionCell.swift; sourceTree = "<group>"; };
+		89ACD27425D007E700C7FD8A /* PersonalPlaylistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPlaylistView.swift; sourceTree = "<group>"; };
+		89ACD27525D007E700C7FD8A /* PersonalPlaylistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPlaylistCell.swift; sourceTree = "<group>"; };
+		89ACD27E25D0080800C7FD8A /* ViewModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 		8945D22025CC90220051DEA5 /* GeneralViews */ = {
 			isa = PBXGroup;
 			children = (
+				89ACD27E25D0080800C7FD8A /* ViewModifiers.swift */,
 				89330D9325CB401F008DDC5E /* BottomNavigationBar.swift */,
 			);
 			path = GeneralViews;
@@ -163,10 +170,28 @@
 			isa = PBXGroup;
 			children = (
 				8945D22225CC903F0051DEA5 /* HomeView.swift */,
-				8945D22A25CC9A620051DEA5 /* PersonalPlaylistCell.swift */,
-				8945D23225CCA17D0051DEA5 /* PersonalPlaylistView.swift */,
+				89ACD27325D007E700C7FD8A /* PersonalPlaylist */,
+				89ACD28325D008C200C7FD8A /* PlaylistCollections */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		89ACD27325D007E700C7FD8A /* PersonalPlaylist */ = {
+			isa = PBXGroup;
+			children = (
+				89ACD27425D007E700C7FD8A /* PersonalPlaylistView.swift */,
+				89ACD27525D007E700C7FD8A /* PersonalPlaylistCell.swift */,
+			);
+			path = PersonalPlaylist;
+			sourceTree = "<group>";
+		};
+		89ACD28325D008C200C7FD8A /* PlaylistCollections */ = {
+			isa = PBXGroup;
+			children = (
+				89ACD26C25D007C700C7FD8A /* PlaylistCollectionsView.swift */,
+				89ACD26D25D007C700C7FD8A /* PlaylistCollectionCell.swift */,
+			);
+			path = PlaylistCollections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,13 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8945D23325CCA17D0051DEA5 /* PersonalPlaylistView.swift in Sources */,
 				89330D9425CB401F008DDC5E /* BottomNavigationBar.swift in Sources */,
 				89330D6725CB37FB008DDC5E /* ContentView.swift in Sources */,
 				89330D6525CB37FB008DDC5E /* SpotifyCloneApp.swift in Sources */,
-				8945D22B25CC9A620051DEA5 /* PersonalPlaylistCell.swift in Sources */,
+				89ACD27625D007E700C7FD8A /* PersonalPlaylistView.swift in Sources */,
+				89ACD26E25D007C700C7FD8A /* PlaylistCollectionsView.swift in Sources */,
+				89ACD27F25D0080800C7FD8A /* ViewModifiers.swift in Sources */,
+				89ACD26F25D007C700C7FD8A /* PlaylistCollectionCell.swift in Sources */,
 				8945D22325CC903F0051DEA5 /* HomeView.swift in Sources */,
 				89330D9C25CB45E9008DDC5E /* Extensions.swift in Sources */,
+				89ACD27725D007E700C7FD8A /* PersonalPlaylistCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
