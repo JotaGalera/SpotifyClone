@@ -12,12 +12,25 @@ struct PlaylistCollectionView: View {
     
     var body: some View {
         VStack {
-            ForEach(0..<playlistCollectionVM.collections2.count) { index in
-                PlaylistCollectionsRow(titleCollection: playlistCollectionVM.collections2[index].title,
-                                       playlists: playlistCollectionVM.collections2[index].playlists)
+            ForEach(0..<playlistCollectionVM.collections.count) { index in
+                PlaylistCollectionsRow(titleCollection: playlistCollectionVM.collections[index].title,
+                                       playlists: playlistCollectionVM.collections[index].playlists)
             }
             
         }
+        .padding(.bottom, 20)
+    }
+}
+
+struct PersonalPlaylistCollectionView: View {
+    var playlistCollectionVM = PlaylistCollectionViewModel()
+    
+    var body: some View {
+        VStack {
+            PlaylistCollectionsRow(titleCollection: playlistCollectionVM.personalCollection.title,
+                                   playlists: playlistCollectionVM.personalCollection.playlists)
+        }
+        .padding(.bottom, 20)
     }
 }
 

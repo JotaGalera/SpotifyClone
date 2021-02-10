@@ -8,12 +8,12 @@
 import Foundation
 
 class PlaylistCollectionViewModel: ObservableObject {
-    var collections: PlaylistCollection
-    var collections2: [PlaylistCollection]
+    var personalCollection: PlaylistCollection
+    var collections: [PlaylistCollection]
     
-    init(collections: PlaylistCollection = Helper.collectionPersonalPlaylist,
-         collections2: [PlaylistCollection] = [Helper.collectionPersonalPlaylist, Helper.collectionPopularPlaylist]) {
+    init(personalCollection: PlaylistCollection = Helper.collectionPersonalPlaylist,
+         collections: [PlaylistCollection] = [Helper.collectionPopPlaylist, Helper.collectionPopularPlaylist]) {
+        self.personalCollection = personalCollection
         self.collections = collections
-        self.collections2 = collections2
     }
 }
