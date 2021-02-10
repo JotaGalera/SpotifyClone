@@ -8,20 +8,29 @@
 import SwiftUI
 
 struct PodcastCell: View {
+    var image: String
+    var name: String
+    var broadcastDate: BroadcastDate?
+    var lenght: String?
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                Image("swiftPodcast")
+                Image(image)
                     .resizable()
                     .cornerRadius(geometry.size.width/20)
-                    
+                    .frame(width: geometry.size.width, height: geometry.size.height - 50)
                 
-                Text("Swift")
-                    .font(.footnote)
-                    .bold()
+                if broadcastDate != nil, lenght != nil {
+                    Text(name)
+                        .font(.footnote)
+                        .bold()
+                    
+                    Text("\(broadcastDate?.rawValue ?? "") · \(lenght ?? "")")
+                        .font(.footnote)
+                }
             }
-            .padding(.leading)
-            .frame(width: geometry.size.width, height: geometry.size.height)
+            
             .background(Color.clear)
         }
     }
@@ -29,6 +38,6 @@ struct PodcastCell: View {
 
 struct PodcastCell_Previews: PreviewProvider {
     static var previews: some View {
-        PodcastCell()
+        PodcastCell(image: "swiftPodcast", name: "Podcast", broadcastDate: .Sat, lenght: "50min")
     }
 }

@@ -44,7 +44,7 @@ struct HomeView: View {
                         PersonalPlaylistCollectionView()
                             
                         
-                        PoscastView()
+                        PodcastView()
                             
                         
                         PlaylistCollectionView()

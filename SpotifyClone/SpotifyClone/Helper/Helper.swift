@@ -40,4 +40,13 @@ class Helper {
     static var collectionPersonalPlaylist: PlaylistCollection = PlaylistCollection (title: "Recently Played", playlists: personalPlaylistArray.shuffled())
     static var collectionPopularPlaylist: PlaylistCollection = PlaylistCollection (title: "Popular Played", playlists: popularPlaylistArray.shuffled())
     static var collectionPopPlaylist: PlaylistCollection = PlaylistCollection(title: "POP", playlists: popPlaylistArray.shuffled())
+    
+    // Podcast
+    static var podcast1 = Podcast(name: "Swift Podcast", image: "swiftPodcast", broadcastDate: .Sat, lenght: "50min")
+    static var podcast2 = Podcast(name: "", image: "browsePodcast")
+    
+    static var podcastArray: [Podcast] = [podcast1, podcast2]
+    
+    // Collection Podcast
+    static var collectionPodcast: PodcastCollection = PodcastCollection(title: "New Episodes", podcasts: podcastArray)
 }
