@@ -40,6 +40,9 @@ struct HomeView: View {
                         
                         PersonalPlaylistView()
                         
+                        PoscastView()
+                            .padding(.bottom, 20)
+                        
                         PlaylistCollectionView()
                         
                         Spacer()
