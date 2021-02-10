@@ -25,6 +25,7 @@ struct PoscastView: View {
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight / 5)
         }
         .foregroundColor(.white)
+        .padding(.bottom, 20)
     }
 }
 

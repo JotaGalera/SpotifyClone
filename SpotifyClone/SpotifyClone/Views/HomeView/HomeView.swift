@@ -10,11 +10,12 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ZStack {
-            Color.black.edgesIgnoringSafeArea(.all)
-        
+            //Color.black.edgesIgnoringSafeArea(.all)
+            Color(UIColor.backgroundBlack!).edgesIgnoringSafeArea(.all)
             ScrollView {
                 ZStack {
-                    RadialGradient(gradient: Gradient(colors: [Color("lightPurple"), .black]),
+                    RadialGradient(gradient: Gradient(colors: [Color("lightPurple"),
+                                                               Color(UIColor.backgroundBlack!)]),
                                    center: .topLeading,
                                    startRadius: 100,
                                    endRadius: 500)
@@ -40,8 +41,11 @@ struct HomeView: View {
                         
                         PersonalPlaylistView()
                         
+                        PersonalPlaylistCollectionView()
+                            
+                        
                         PoscastView()
-                            .padding(.bottom, 20)
+                            
                         
                         PlaylistCollectionView()
                         

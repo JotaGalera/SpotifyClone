@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 extension UIColor {
+    static let backgroundBlack = UIColor(named: "backgroundBlack")
     static let darkGray = UIColor(named: "darkGray")
     static let lightPurple = UIColor(named: "lightPurple")
 }

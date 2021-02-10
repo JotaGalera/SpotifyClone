@@ -11,12 +11,12 @@ struct PodcastCell: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                Image("workFromHome")
+                Image("swiftPodcast")
                     .resizable()
                     .cornerRadius(geometry.size.width/20)
                     
                 
-                Text("Nadie Sabe Nada")
+                Text("Swift")
                     .font(.footnote)
                     .bold()
             }
