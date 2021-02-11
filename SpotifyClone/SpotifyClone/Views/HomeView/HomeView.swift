@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ZStack {
-            //Color.black.edgesIgnoringSafeArea(.all)
             Color(UIColor.backgroundBlack!).edgesIgnoringSafeArea(.all)
             ScrollView {
                 ZStack {
