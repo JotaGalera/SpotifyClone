@@ -15,26 +15,28 @@ struct BottomNavigationBar: View {
     }
     
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-            
-            Text("Search")
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
-            
-            Text("Your Library")
-                .tabItem {
-                    Image(systemName: "books.vertical")
-                    Text("Your Library")
-                }
+        NavigationView {
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                
+                Text("Search")
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+                
+                Text("Your Library")
+                    .tabItem {
+                        Image(systemName: "books.vertical")
+                        Text("Your Library")
+                    }
+            }
+            .accentColor(.white)
         }
-        .accentColor(.white)
     }
 }
 

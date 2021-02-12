@@ -13,4 +13,5 @@ struct Playlist: Identifiable {
     var name: String
     var image: String
     var isPersonalized: Bool
+    var songs: [Song]
 }
