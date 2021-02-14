@@ -37,6 +37,8 @@ struct PlaylistCollectionCell: View {
 
 struct PlaylistCollectionCell_Previews: PreviewProvider {
     static var previews: some View {
-        PlaylistCollectionCell(image: "likedSong", name: "Liked Songs", isPersonalized: false)
+        PlaylistCollectionCell(image: "likedSong",
+                               name: "Liked Songs",
+                               isPersonalized: false)
     }
 }

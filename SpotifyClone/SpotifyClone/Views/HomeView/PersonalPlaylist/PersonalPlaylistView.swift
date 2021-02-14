@@ -15,8 +15,8 @@ struct PersonalPlaylistView: View {
             ForEach(0..<personalPlaylistVM.playlists.count) { index in
                 if index % 2 == 0 {
                     HStack {
-                        PersonalPlaylistCell(image: personalPlaylistVM.playlists[index].image, name: personalPlaylistVM.playlists[index].name)
-                        PersonalPlaylistCell(image: personalPlaylistVM.playlists[index+1].image, name: personalPlaylistVM.playlists[index+1].name)
+                        PersonalPlaylistCell(playlist: personalPlaylistVM.playlists[index])
+                        PersonalPlaylistCell(playlist: personalPlaylistVM.playlists[index+1])
                     }
                 }
             }

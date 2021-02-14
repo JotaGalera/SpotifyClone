@@ -11,45 +11,52 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             Color(UIColor.backgroundBlack!).edgesIgnoringSafeArea(.all)
-            ScrollView {
-                ZStack {
-                    RadialGradient(gradient: Gradient(colors: [Color("lightPurple"),
-                                                               Color(UIColor.backgroundBlack!)]),
-                                   center: .topLeading,
-                                   startRadius: 100,
-                                   endRadius: 500)
-                        .offset(y: -180.0)
-                    
-                    VStack {
-                        HStack {
-                            Text("Good Evening")
-                                .modifier(TitleText())
-                                
-                            Spacer()
+            HomeContentView()
+        }
+        .navigationTitle("")
+        .navigationBarHidden(true)
+    }
+}
+
+struct HomeContentView: View {
+    var backgroundColor: Gradient = Gradient(colors: [Color("lightPurple"), Color(UIColor.backgroundBlack!)])
+    
+    var body: some View {
+        ScrollView {
+            ZStack {
+                RadialGradient(gradient: backgroundColor,
+                               center: .topLeading,
+                               startRadius: 100,
+                               endRadius: 500)
+                    .offset(y: -180.0)
+                
+                VStack {
+                    HStack {
+                        Text("Good Evening")
+                            .modifier(TitleText())
                             
-                            Button(action: {
-                                // TODO : open setting view
-                            }, label: {
-                                Image(systemName: "gearshape")
-                                    .font(.system(size: 23))
-                            })
-                        }
-                        .foregroundColor(.white)
-                        .padding(.top,25)
-                        .padding()
-                        
-                        PersonalPlaylistView()
-                        
-                        PersonalPlaylistCollectionView()
-                            
-                        
-                        PodcastView()
-                            
-                        
-                        PlaylistCollectionView()
-                        
                         Spacer()
+                        
+                        Button(action: {
+                            // TODO : open setting view
+                        }, label: {
+                            Image(systemName: "gearshape")
+                                .font(.system(size: 23))
+                        })
                     }
+                    .foregroundColor(.white)
+                    .padding(.top,25)
+                    .padding()
+                    
+                    PersonalPlaylistView()
+                    
+                    PersonalPlaylistCollectionView()
+                        
+                    PodcastView()
+                        
+                    PlaylistCollectionView()
+                    
+                    Spacer()
                 }
             }
         }
@@ -57,8 +64,6 @@ struct HomeView: View {
 }
 
 struct HomeView_Previews: PreviewProvider {
-    let gradientColors = Gradient(colors: [.blue, .black])
-        
     static var previews: some View {
         ZStack {
             HomeView()

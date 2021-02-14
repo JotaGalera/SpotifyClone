@@ -8,37 +8,82 @@
 import SwiftUI
 
 struct ReproducePlaylistView: View {
-    var body: some View {
-        VStack {
-            GeometryReader { geometry in
-                ScrollView() {
-                    GeometryReader { geometry in
-                        Image("queen")
-                            .resizable()
-                            .padding()
-                            .frame(width: geometry.size.width)
-                            .shadow(color: .black, radius: 10, x: 0, y: 10)
-                    }
-                    .frame(width: 320, height: 320)
-                    
-                    PlaylistContentView()
-                    
-                    PlaylistContentRow()
-                        .frame(width: geometry.size.width)
-                }
-                .frame(width: geometry.size.width)
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    var reproducePlaylistVM: ReproducePlaylistViewModel
+    
+    var backgroundColor: Gradient = Gradient(colors: [Color("lightPurple"), Color(UIColor.backgroundBlack!)])
+    
+    var backButton: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            HStack {
+                Image(systemName: "chevron.left")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.white)
             }
         }
-        .frame(width: UIScreen.screenWidth)
     }
+    
+    init(playlist: Playlist) {
+        self.reproducePlaylistVM = ReproducePlaylistViewModel(playlist: playlist)
+    }
+    
+    var body: some View {
+        ZStack {
+            LinearGradient(gradient: backgroundColor,
+                           startPoint: .top,
+                           endPoint: .center)
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                GeometryReader { geometry in
+                    ScrollView() {
+                        HStack(alignment: .top, spacing: 0) {
+                            backButton
+                                .padding(.top)
+                                .padding(.leading)
+                                
+                            GeometryReader { geometry in
+                                Image(reproducePlaylistVM.playlist.image)
+                                    .resizable()
+                                    .padding()
+                                    .frame(width: geometry.size.width)
+                                    .shadow(color: .black, radius: 10, x: 0, y: 10)
+                            }
+                            .frame(width: geometry.size.width - geometry.size.width/5,
+                                   height: geometry.size.width - geometry.size.width/5)
+                            .padding(.leading)
+                            .padding(.trailing)
+                            
+                            Spacer()
+                        }
+                        .frame(width: geometry.size.width)
+                        
+                        PlaylistContentView(description: reproducePlaylistVM.playlist.description,
+                                            likes: reproducePlaylistVM.playlist.likes,
+                                            lenght: reproducePlaylistVM.playlist.lenght)
+                        
+                        PlaylistContentRow(songs: reproducePlaylistVM.playlist.songs)
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                    }
+                    .frame(width: geometry.size.width)
+                }
+            }
+            .frame(width: UIScreen.screenWidth)
+        }
+        .navigationTitle("")
+        .navigationBarHidden(true)
+        .onAppear() {
+            
+        }
+    }
+    
 }
 
 struct ReproducePlaylistView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.backgroundBlack!)]), startPoint: .top, endPoint: .center)
-                .edgesIgnoringSafeArea(.all)
-            ReproducePlaylistView()
+            ReproducePlaylistView(playlist: Helper.personalPlaylist2)
         }
     }
 }

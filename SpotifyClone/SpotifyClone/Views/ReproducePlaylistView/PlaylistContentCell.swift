@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct PlaylistContentCell: View {
+    var image: String
+    var name: String
+    var artist: String
+    
     var body: some View {
         GeometryReader { geometry in
             HStack {
-                Image("queen")
+                Image(image)
                     .resizable()
                     .frame(width: geometry.size.width/6,
                            height: geometry.size.width/6)
             
                 VStack(alignment: .leading) {
-                    Text("Death On Two Legs")
+                    Text(name)
                         .bold()
-                    Text("Death On Two Legs")
+                    Text(artist)
+                        .font(.subheadline)
+                        .foregroundColor(Color(UIColor.lightGray))
                 }
                 
                 Spacer()
@@ -30,6 +36,8 @@ struct PlaylistContentCell: View {
                     Image(systemName: "ellipsis")
                 })
             }
+            .padding(.leading)
+            .padding(.trailing)
             .frame(width: geometry.size.width)
             .foregroundColor(.white)
         }
@@ -41,7 +49,9 @@ struct PlaylistContentCell_Previews: PreviewProvider {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.backgroundBlack!)]), startPoint: .top, endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
-            PlaylistContentCell()
+            PlaylistContentCell(image: Helper.izalSong1.image,
+                                name: Helper.izalSong1.name,
+                                artist: Helper.izalSong1.artists)
         }
     }
 }
