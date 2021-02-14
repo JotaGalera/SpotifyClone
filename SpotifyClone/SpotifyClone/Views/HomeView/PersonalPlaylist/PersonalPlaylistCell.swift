@@ -12,7 +12,7 @@ struct PersonalPlaylistCell: View {
     
     var body: some View {
         NavigationLink(
-            destination: ReproducePlaylistView(),
+            destination: ReproducePlaylistView(playlist: playlist),
             label: {
                 HStack {
                     GeometryReader { geometry in

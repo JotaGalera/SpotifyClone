@@ -25,29 +25,29 @@ class Helper {
     static var queenSongArray: [Song] = [song1, song2, song3, song4, song5, song6, song7, song8, song9, song10, song11, song12]
     
     // Personal
-    static var personalPlaylist1 = Playlist(name: "Liked Song", image: "likedSong", isPersonalized: false, songs: queenSongArray)
-    static var personalPlaylist2 = Playlist(name: "Queen", image: "queen", isPersonalized: true, songs: queenSongArray)
-    static var personalPlaylist3 = Playlist(name: "Izal", image: "izal", isPersonalized: true, songs: queenSongArray)
-    static var personalPlaylist4 = Playlist(name: "Most Popular", image: "mostPopular", isPersonalized: false, songs: queenSongArray)
-    static var personalPlaylist5 = Playlist(name: "Work From Home", image: "workFromHome", isPersonalized: false, songs: queenSongArray)
-    static var personalPlaylist6 = Playlist(name: "Green Day", image: "greenDay", isPersonalized: true, songs: queenSongArray)
+    static var personalPlaylist1 = Playlist(name: "Liked Song", image: "likedSong", description: "Your liked songs", likes: 0, lenght: "1h 20m", isPersonalized: false, songs: queenSongArray)
+    static var personalPlaylist2 = Playlist(name: "Queen", image: "queen", description: "The best of Queen", likes: 145000, lenght: "2h 1m", isPersonalized: true, songs: queenSongArray)
+    static var personalPlaylist3 = Playlist(name: "Izal", image: "izal", description: "The best of Izal", likes: 90000, lenght: "1h 34m", isPersonalized: true, songs: queenSongArray)
+    static var personalPlaylist4 = Playlist(name: "Most Popular", image: "mostPopular", description: "Most popular songs", likes: 100000, lenght: "1h 45m", isPersonalized: false, songs: queenSongArray)
+    static var personalPlaylist5 = Playlist(name: "Work From Home", image: "workFromHome", description: "Working efficiently", likes: 50000, lenght: "2h 20m", isPersonalized: false, songs: queenSongArray)
+    static var personalPlaylist6 = Playlist(name: "Green Day", image: "greenDay", description: "The best of Green Day", likes: 88756, lenght: "1h 23m", isPersonalized: true, songs: queenSongArray)
     
     static var personalPlaylistArray: [Playlist] = [personalPlaylist1, personalPlaylist2, personalPlaylist3, personalPlaylist4, personalPlaylist5, personalPlaylist6]
     
     // Popular
-    static var popularPlaylist1 = Playlist(name: "International Pop", image: "internationalPop", isPersonalized: false, songs: queenSongArray)
-    static var popularPlaylist2 = Playlist(name: "Retro", image: "retroMusic", isPersonalized: false, songs: queenSongArray)
-    static var popularPlaylist3 = Playlist(name: "Classic", image: "classicMusic", isPersonalized: false, songs: queenSongArray)
-    static var popularPlaylist4 = Playlist(name: "Chill", image: "chillMusic", isPersonalized: false, songs: queenSongArray)
-    static var popularPlaylist5 = Playlist(name: "Electro Music", image: "electroMusic", isPersonalized: false, songs: queenSongArray)
+    static var popularPlaylist1 = Playlist(name: "International Pop", image: "internationalPop", description: "The best of the Pop", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
+    static var popularPlaylist2 = Playlist(name: "Retro", image: "retroMusic", description: "", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
+    static var popularPlaylist3 = Playlist(name: "Classic", image: "classicMusic", description: "", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
+    static var popularPlaylist4 = Playlist(name: "Chill", image: "chillMusic", description: "", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
+    static var popularPlaylist5 = Playlist(name: "Electro Music", image: "electroMusic", description: "", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
     
     static var popularPlaylistArray: [Playlist] = [popularPlaylist1, popularPlaylist2, popularPlaylist3, popularPlaylist4, popularPlaylist5]
     
     // Pop
-    static var popPlaylist1 = Playlist(name: "Viral Hits", image: "viralHits", isPersonalized: false, songs: queenSongArray)
-    static var popPlaylist2 = Playlist(name: "Soft Pop Hits", image: "softPopHits", isPersonalized: false, songs: queenSongArray)
-    static var popPlaylist3 = Playlist(name: "Best Latin Pop", image: "bestLatinPop", isPersonalized: false, songs: queenSongArray)
-    static var popPlaylist4 = Playlist(name: "Radio", image: "radio", isPersonalized: false, songs: queenSongArray)
+    static var popPlaylist1 = Playlist(name: "Viral Hits", image: "viralHits", description: "", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
+    static var popPlaylist2 = Playlist(name: "Soft Pop Hits", image: "softPopHits", description: "", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
+    static var popPlaylist3 = Playlist(name: "Best Latin Pop", image: "bestLatinPop", description: "", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
+    static var popPlaylist4 = Playlist(name: "Radio", image: "radio", description: "", likes: 1, lenght: "1h 1m", isPersonalized: false, songs: queenSongArray)
     
     
     static var popPlaylistArray: [Playlist] = [popPlaylist1, popPlaylist2, popPlaylist3, popPlaylist4]

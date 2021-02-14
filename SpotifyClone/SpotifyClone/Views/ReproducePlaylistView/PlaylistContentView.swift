@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct PlaylistContentView: View {
+    var description: String
+    var likes: Int
+    var lenght: String
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("The best of the Pop")
+            Text(description)
                 .font(.footnote)
             HStack {
                 Image("spotifyIcon")
@@ -24,7 +28,7 @@ struct PlaylistContentView: View {
             }
             HStack {
                 VStack(alignment: .leading, spacing: 15) {
-                    Text("152.000 likes · 4h 58m")
+                    Text("\(likes) · \(lenght)")
                         .font(.footnote)
                     
                     HStack(spacing: 30) {
@@ -103,7 +107,9 @@ struct PlaylistContentView_Previews: PreviewProvider {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.backgroundBlack!)]), startPoint: .top, endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
-            PlaylistContentView()
+            PlaylistContentView(description: "The best of the pop",
+                                likes: 145000,
+                                lenght: "1h 29m")
         }
     }
 }
