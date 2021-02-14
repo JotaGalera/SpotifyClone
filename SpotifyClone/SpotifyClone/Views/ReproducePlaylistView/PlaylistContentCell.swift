@@ -24,6 +24,8 @@ struct PlaylistContentCell: View {
                     Text(name)
                         .bold()
                     Text(artist)
+                        .font(.subheadline)
+                        .foregroundColor(Color(UIColor.lightGray))
                 }
                 
                 Spacer()
@@ -47,9 +49,9 @@ struct PlaylistContentCell_Previews: PreviewProvider {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.backgroundBlack!)]), startPoint: .top, endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
-            PlaylistContentCell(image: Helper.song1.image,
-                                name: Helper.song1.name,
-                                artist: Helper.song1.artists)
+            PlaylistContentCell(image: Helper.izalSong1.image,
+                                name: Helper.izalSong1.name,
+                                artist: Helper.izalSong1.artists)
         }
     }
 }
