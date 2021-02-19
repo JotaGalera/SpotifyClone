@@ -35,29 +35,16 @@ struct ReproducePlaylistView: View {
                            startPoint: .top,
                            endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
-            VStack {
+            ZStack(alignment: .leading) {
+                backButton
+                    .position(x: 30, y: 20)
+                
                 GeometryReader { geometry in
                     ScrollView() {
-                        HStack(alignment: .top, spacing: 0) {
-                            backButton
-                                .padding(.top)
-                                .padding(.leading)
-                                
-                            GeometryReader { geometry in
-                                Image(reproducePlaylistVM.playlist.image)
-                                    .resizable()
-                                    .padding()
-                                    .frame(width: geometry.size.width)
-                                    .shadow(color: .black, radius: 10, x: 0, y: 10)
-                            }
+                        
+                        ImageContent(image: reproducePlaylistVM.playlist.image)
                             .frame(width: geometry.size.width - geometry.size.width/5,
                                    height: geometry.size.width - geometry.size.width/5)
-                            .padding(.leading)
-                            .padding(.trailing)
-                            
-                            Spacer()
-                        }
-                        .frame(width: geometry.size.width)
                         
                         PlaylistContentView(description: reproducePlaylistVM.playlist.description,
                                             likes: reproducePlaylistVM.playlist.likes,
@@ -73,11 +60,41 @@ struct ReproducePlaylistView: View {
         }
         .navigationTitle("")
         .navigationBarHidden(true)
-        .onAppear() {
+    }
+}
+
+struct ImageContent: View {
+    var image: String
+    
+    
+    var body: some View {
+        HStack(alignment: .top, spacing: 0) {
+            GeometryReader { geometry in
+                Image(image)
+                    .resizable()
+                    .padding()
+                    
+                    .aspectRatio(contentMode: .fill)
+                    .offset(y: max(100 - CGFloat(Double(geometry.frame(in: .global).minY * 1.3)), 0))
+                    .frame(width: geometry.size.width,
+                           height: getHeigh(from: geometry))
+                    .shadow(color: .black, radius: 10, x: 0, y: 10)
+                    .opacity(Double(geometry.frame(in: .global).minY)/300 + 0.90)
+                    
+            }
+            .padding(.leading)
+            .padding(.trailing)
+            .padding(.top, 7)
             
+            Spacer()
         }
     }
     
+    private func getHeigh(from geometry: GeometryProxy) -> CGFloat {
+        return min(
+            geometry.frame(in: .global).minY/1.7 + (geometry.size.width - geometry.size.width/5),
+            UIScreen.screenWidth - UIScreen.screenWidth/8)
+    }
 }
 
 struct ReproducePlaylistView_Previews: PreviewProvider {
