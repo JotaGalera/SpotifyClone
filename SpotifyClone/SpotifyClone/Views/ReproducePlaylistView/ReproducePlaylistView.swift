@@ -41,17 +41,18 @@ struct ReproducePlaylistView: View {
                 
                 GeometryReader { geometry in
                     ScrollView() {
-                        
-                        ImageContent(image: reproducePlaylistVM.playlist.image)
-                            .frame(width: geometry.size.width - geometry.size.width/5,
-                                   height: geometry.size.width - geometry.size.width/5)
-                        
-                        PlaylistContentView(description: reproducePlaylistVM.playlist.description,
-                                            likes: reproducePlaylistVM.playlist.likes,
-                                            lenght: reproducePlaylistVM.playlist.lenght)
-                        
-                        PlaylistContentRow(songs: reproducePlaylistVM.playlist.songs)
-                            .frame(width: geometry.size.width, height: geometry.size.height)
+                        VStack {
+                            ImageContent(image: reproducePlaylistVM.playlist.image)
+                                .frame(width: geometry.size.width - geometry.size.width/5,
+                                       height: geometry.size.width - geometry.size.width/3)
+                            
+                            PlaylistContentView(description: reproducePlaylistVM.playlist.description,
+                                                likes: reproducePlaylistVM.playlist.likes,
+                                                lenght: reproducePlaylistVM.playlist.lenght)
+                            
+                            PlaylistContentRow(songs: reproducePlaylistVM.playlist.songs)
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                        }
                     }
                     .frame(width: geometry.size.width)
                 }
@@ -66,34 +67,46 @@ struct ReproducePlaylistView: View {
 struct ImageContent: View {
     var image: String
     
-    
     var body: some View {
-        HStack(alignment: .top, spacing: 0) {
+        VStack(alignment: .center) {
             GeometryReader { geometry in
-                Image(image)
-                    .resizable()
-                    .padding()
-                    
-                    .aspectRatio(contentMode: .fill)
-                    .offset(y: max(100 - CGFloat(Double(geometry.frame(in: .global).minY * 1.3)), 0))
-                    .frame(width: geometry.size.width,
-                           height: getHeigh(from: geometry))
-                    .shadow(color: .black, radius: 10, x: 0, y: 10)
-                    .opacity(Double(geometry.frame(in: .global).minY)/300 + 0.90)
-                    
+                VStack(alignment: .center) {
+                    Image(image)
+                        .resizable()
+                        .padding()
+                        .aspectRatio(contentMode: .fill)
+                        .offset(y: getOffset(from: geometry))
+                        .frame(width: getWidth(from: geometry),
+                               height: getHeigh(from: geometry))
+                        .shadow(color: .black, radius: 20, x: 0, y: 10)
+                        .opacity(getOpacity(from: geometry))
+                        .padding(.top, 60)
+                }
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
             .padding(.leading)
             .padding(.trailing)
-            .padding(.top, 7)
-            
-            Spacer()
+            .padding(.top, 12)
         }
+    }
+    
+    private func getOffset(from geometry: GeometryProxy) -> CGFloat {
+        return -CGFloat(Double(geometry.frame(in: .global).minY * 0.6))
     }
     
     private func getHeigh(from geometry: GeometryProxy) -> CGFloat {
         return min(
-            geometry.frame(in: .global).minY/1.7 + (geometry.size.width - geometry.size.width/5),
-            UIScreen.screenWidth - UIScreen.screenWidth/8)
+            geometry.frame(in: .global).minY/1.7 + (geometry.size.width - geometry.size.width/7),
+            UIScreen.screenWidth - UIScreen.screenWidth/8
+        )
+    }
+    
+    private func getWidth(from geometry: GeometryProxy) -> CGFloat {
+        return geometry.frame(in: .global).minX/10
+    }
+    
+    private func getOpacity(from geometry: GeometryProxy) -> Double {
+        return Double(geometry.frame(in: .global).minY)/100 + 0.90
     }
 }
 
