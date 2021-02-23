@@ -10,8 +10,7 @@ import SwiftUI
 struct ReproducePlaylistView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var reproducePlaylistVM: ReproducePlaylistViewModel
-    
-    var backgroundColor: Gradient = Gradient(colors: [Color("lightPurple"), Color(UIColor.backgroundBlack!)])
+    var backgroundColor: Gradient
     
     var backButton: some View {
         Button(action: {
@@ -27,6 +26,7 @@ struct ReproducePlaylistView: View {
     
     init(playlist: Playlist) {
         self.reproducePlaylistVM = ReproducePlaylistViewModel(playlist: playlist)
+        self.backgroundColor = Gradient(colors: [Color(reproducePlaylistVM.getPrimaryColorOfTheImage()), Color(UIColor.backgroundBlack!)])
     }
     
     var body: some View {
@@ -61,6 +61,12 @@ struct ReproducePlaylistView: View {
         }
         .navigationTitle("")
         .navigationBarHidden(true)
+    }
+    
+    private func getBackgroundGradiantColor() -> Gradient {
+        let primaryGradiantColor = UIImage(named: reproducePlaylistVM.playlist.image)?.averageColor
+        
+        return Gradient(colors: [Color(primaryGradiantColor!), Color(UIColor.backgroundBlack!)])
     }
 }
 
