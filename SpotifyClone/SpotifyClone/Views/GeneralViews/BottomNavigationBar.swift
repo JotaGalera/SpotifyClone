@@ -12,8 +12,12 @@ struct BottomNavigationBar: View {
     init() {
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().barTintColor = UIColor.darkGray
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
     }
-    
+        
     var body: some View {
         NavigationView {
             TabView {
