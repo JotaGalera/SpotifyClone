@@ -12,7 +12,7 @@ struct PlaylistContentRow: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing:0) {
+            LazyVStack(spacing:0) {
                 ForEach(0..<playlist.songs.count) { index in
                     NavigationLink(
                         destination: AudioPlayerView(playlist: playlist, selectedSongPosition: index),

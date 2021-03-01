@@ -9,12 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        ZStack {
-            Color(UIColor.backgroundBlack!).edgesIgnoringSafeArea(.all)
-            HomeContentView()
+        NavigationView {
+            ZStack {
+                Color(UIColor.backgroundBlack!).edgesIgnoringSafeArea(.all)
+                HomeContentView()
+            }
+            .navigationTitle("")
+            .navigationBarHidden(true)
         }
-        .navigationTitle("")
-        .navigationBarHidden(true)
+        
     }
 }
 

@@ -10,37 +10,34 @@ import SwiftUI
 struct BottomNavigationBar: View {
     
     init() {
-        UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().barTintColor = UIColor.darkGray
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarAppearance.backgroundColor = UIColor.darkGray
+        UITabBar.appearance().standardAppearance = tabBarAppearance
     }
         
     var body: some View {
-        NavigationView {
-            TabView {
-                HomeView()
-                    .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("Home")
-                    }
-                
-                Text("Search")
-                    .tabItem {
-                        Image(systemName: "magnifyingglass")
-                        Text("Search")
-                    }
-                
-                Text("Your Library")
-                    .tabItem {
-                        Image(systemName: "books.vertical")
-                        Text("Your Library")
-                    }
+        TabView {
+            HomeView()
+                .frame(width: UIScreen.screenWidth)
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
             }
-            .accentColor(.white)
+            
+            Text("Search")
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
+            
+            Text("Your Library")
+                .tabItem {
+                    Image(systemName: "books.vertical")
+                    Text("Your Library")
+                }
         }
+        .accentColor(.white)
     }
 }
 
