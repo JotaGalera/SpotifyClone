@@ -8,30 +8,53 @@
 import SwiftUI
 
 struct AudioPlayerView: View {
-    var body: some View {
-        VStack {
-            Spacer()
-            
-            AudioPlayerHeaderView()
-                
-            Spacer()
-            
-            AudioPlayerContentView()
-                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
-            Spacer()
-            
-            AudioPlayerFooterView()
-            
-            Spacer()
-        }
-        .foregroundColor(.white)
-        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
+    var audioPlayerVM: AudioPlayerViewModel
+    var backgroundColor: Gradient
+    
+    init(playlist: Playlist, selectedSongPosition: Int?) {
+        audioPlayerVM = AudioPlayerViewModel(playlist: playlist, currentSongPosition: selectedSongPosition)
         
+        backgroundColor = Gradient(colors: [Color(audioPlayerVM.getPrimaryColorOfTheImage()), Color(UIColor.backgroundBlack!)])
+    }
+    
+    var body: some View {
+        ZStack {
+            LinearGradient(gradient: backgroundColor,
+                startPoint: .top,
+                endPoint: .trailing)
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                Spacer()
+                
+                AudioPlayerHeaderView(playlistTitle: audioPlayerVM.getPlaylistName())
+                    
+                Spacer()
+                
+                AudioPlayerContentView(audioPlayerVM: audioPlayerVM)
+                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/1.5)
+                
+                Spacer()
+                
+                AudioPlayerFooterView()
+                
+                Spacer()
+            }
+            .environmentObject(audioPlayerVM)
+            .foregroundColor(.white)
+            .navigationTitle("")
+            .navigationBarHidden(true)
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
+            .onAppear() {
+                audioPlayerVM.play()
+            }
+        }
     }
 }
 
 struct AudioPlayerHeaderView: View {
+    var playlistTitle: String
+    
     var body: some View {
         HStack {
             Button(action: {
@@ -42,7 +65,7 @@ struct AudioPlayerHeaderView: View {
             
             Spacer()
             
-            Text("Playlist name")
+            Text(playlistTitle)
                 .font(.footnote)
             
             Spacer()
@@ -84,7 +107,7 @@ struct AudioPlayerView_Previews: PreviewProvider {
                            startPoint: .top,
                            endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
-            AudioPlayerView()
+            AudioPlayerView(playlist: Helper.popPlaylist1, selectedSongPosition: 0)
         }
     }
 }

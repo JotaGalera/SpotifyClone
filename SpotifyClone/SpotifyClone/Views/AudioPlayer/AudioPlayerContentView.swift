@@ -6,23 +6,26 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct AudioPlayerContentView: View {
+    @StateObject var audioPlayerVM: AudioPlayerViewModel
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Image("izalSong")
+                Image(audioPlayerVM.getImage())
                     .resizable()
                     .frame(width: geometry.size.width/1.1, height: geometry.size.width/1.1)
                     .shadow(radius: 10)
             
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Autoterapia")
+                        Text(audioPlayerVM.getSongName())
                             .font(.custom("HelveticaNeue-Light", size: 26))
                             .bold()
                         
-                        Text("IZAL")
+                        Text(audioPlayerVM.getSongArtists())
                             .font(.subheadline)
                     }
                     Spacer()
@@ -78,11 +81,17 @@ struct AudioPlayerContentView: View {
                     Spacer()
                     
                     Button(action: {
-                        //
+                        audioPlayerVM.playMusic()
                     }, label: {
-                        Image(systemName: "play.circle.fill")
-                            .resizable()
-                            .frame(width: 60, height: 60)
+                        if audioPlayerVM.isPlaying {
+                            Image(systemName: "pause.circle.fill")
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                        } else {
+                            Image(systemName: "play.circle.fill")
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                        }
                     })
                     
                     Spacer()
@@ -117,7 +126,7 @@ struct AudioPlayerContentView_Previews: PreviewProvider {
                            startPoint: .top,
                            endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
-            AudioPlayerContentView()
+            AudioPlayerContentView(audioPlayerVM: AudioPlayerViewModel(playlist: Helper.personalPlaylist1, currentSongPosition: 0))
                 .foregroundColor(.white)
         }
     }

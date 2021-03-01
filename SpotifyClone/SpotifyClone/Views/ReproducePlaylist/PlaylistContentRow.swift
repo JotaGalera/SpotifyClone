@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct PlaylistContentRow: View {
-    var songs: [Song]
+    var playlist: Playlist
     
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing:0) {
-                ForEach(songs) { song in
-                    PlaylistContentCell(image: song.image, name: song.name, artist: song.artists)
-                        .frame(width: geometry.size.width, height: geometry.size.height/10)
+                ForEach(0..<playlist.songs.count) { index in
+                    NavigationLink(
+                        destination: AudioPlayerView(playlist: playlist, selectedSongPosition: index),
+                        label: {
+                            PlaylistContentCell(image: playlist.songs[index].image,
+                                                name: playlist.songs[index].name,
+                                                artist: playlist.songs[index].artists)
+                                .frame(width: geometry.size.width, height: geometry.size.height/10)
+                        })
                 }
             }
         }
@@ -27,7 +33,7 @@ struct PlaylistContentRow_Previews: PreviewProvider {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.white, Color(UIColor.backgroundBlack!)]), startPoint: .top, endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
-            PlaylistContentRow(songs: Helper.queenSongArray)
+            PlaylistContentRow(playlist: Helper.popPlaylist1)
         }
     }
 }

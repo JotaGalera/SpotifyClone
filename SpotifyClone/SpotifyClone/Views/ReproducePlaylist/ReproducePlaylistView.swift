@@ -26,47 +26,42 @@ struct ReproducePlaylistView: View {
     
     init(playlist: Playlist) {
         self.reproducePlaylistVM = ReproducePlaylistViewModel(playlist: playlist)
+        
         self.backgroundColor = Gradient(colors: [Color(reproducePlaylistVM.getPrimaryColorOfTheImage()), Color(UIColor.backgroundBlack!)])
     }
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .leading) {
             LinearGradient(gradient: backgroundColor,
                            startPoint: .top,
                            endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
-            ZStack(alignment: .leading) {
-                backButton
-                    .position(x: 30, y: 20)
-                
-                GeometryReader { geometry in
-                    ScrollView() {
-                        VStack {
-                            ImageContent(image: reproducePlaylistVM.playlist.image)
-                                .frame(width: geometry.size.width - geometry.size.width/5,
-                                       height: geometry.size.width - geometry.size.width/3)
-                            
-                            PlaylistContentView(description: reproducePlaylistVM.playlist.description,
-                                                likes: reproducePlaylistVM.playlist.likes,
-                                                lenght: reproducePlaylistVM.playlist.lenght)
-                            
-                            PlaylistContentRow(songs: reproducePlaylistVM.playlist.songs)
-                                .frame(width: geometry.size.width, height: geometry.size.height)
-                        }
+            
+            backButton
+                .position(x: 30, y: 20)
+                .zIndex(1)
+            
+            GeometryReader { geometry in
+                ScrollView() {
+                    VStack {
+                        ImageContent(image: reproducePlaylistVM.playlist.image)
+                            .frame(width: geometry.size.width - geometry.size.width/5,
+                                   height: geometry.size.width - geometry.size.width/3)
+                        
+                        PlaylistContentView(description: reproducePlaylistVM.playlist.description,
+                                            likes: reproducePlaylistVM.playlist.likes,
+                                            lenght: reproducePlaylistVM.playlist.lenght)
+                        
+                        PlaylistContentRow(playlist: reproducePlaylistVM.playlist)
+                            .frame(width: geometry.size.width, height: geometry.size.height)
                     }
-                    .frame(width: geometry.size.width)
                 }
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .frame(width: UIScreen.screenWidth)
         }
+        .frame(width: UIScreen.screenWidth)
         .navigationTitle("")
         .navigationBarHidden(true)
-    }
-    
-    private func getBackgroundGradiantColor() -> Gradient {
-        let primaryGradiantColor = UIImage(named: reproducePlaylistVM.playlist.image)?.averageColor
-        
-        return Gradient(colors: [Color(primaryGradiantColor!), Color(UIColor.backgroundBlack!)])
     }
 }
 
@@ -83,7 +78,7 @@ struct ImageContent: View {
                         .aspectRatio(contentMode: .fill)
                         .offset(y: getOffset(from: geometry))
                         .frame(width: getWidth(from: geometry),
-                               height: getHeigh(from: geometry))
+                               height: getHeight(from: geometry))
                         .shadow(color: .black, radius: 20, x: 0, y: 10)
                         .opacity(getOpacity(from: geometry))
                         .padding(.top, 60)
@@ -100,7 +95,7 @@ struct ImageContent: View {
         return -CGFloat(Double(geometry.frame(in: .global).minY * 0.6))
     }
     
-    private func getHeigh(from geometry: GeometryProxy) -> CGFloat {
+    private func getHeight(from geometry: GeometryProxy) -> CGFloat {
         return min(
             geometry.frame(in: .global).minY/1.7 + (geometry.size.width - geometry.size.width/7),
             UIScreen.screenWidth - UIScreen.screenWidth/8

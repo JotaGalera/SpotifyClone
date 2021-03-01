@@ -33,8 +33,14 @@
 		89ACD27725D007E700C7FD8A /* PersonalPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD27525D007E700C7FD8A /* PersonalPlaylistCell.swift */; };
 		89ACD27F25D0080800C7FD8A /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD27E25D0080800C7FD8A /* ViewModifiers.swift */; };
 		89AF379725D72675007FFE0B /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF379625D72675007FFE0B /* Song.swift */; };
+		89B5FF3D25EC275A00020FC8 /* blackbear_fashion-week.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89B5FF3C25EC275A00020FC8 /* blackbear_fashion-week.mp3 */; };
+		89B5FF4225EC296F00020FC8 /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B5FF4125EC296F00020FC8 /* AudioPlayerViewModel.swift */; };
 		89CAB6D725D06DDA004F1511 /* PlaylistCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAB6D625D06DDA004F1511 /* PlaylistCollection.swift */; };
 		89CAB6E225D0920E004F1511 /* PlaylistCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CAB6E125D0920E004F1511 /* PlaylistCollectionView.swift */; };
+		89D6EEF325ED0699001E7B19 /* Autoterapia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89D6EEF225ED0699001E7B19 /* Autoterapia.mp3 */; };
+		89D6EEFA25ED069E001E7B19 /* Bill Murray.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89D6EEF725ED069E001E7B19 /* Bill Murray.mp3 */; };
+		89D6EEFB25ED069E001E7B19 /* Ruido Blanco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89D6EEF825ED069E001E7B19 /* Ruido Blanco.mp3 */; };
+		89D6EEFC25ED069E001E7B19 /* El Pozo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89D6EEF925ED069E001E7B19 /* El Pozo.mp3 */; };
 		89E8373625D46ED7008525DA /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8373525D46ED7008525DA /* PodcastCell.swift */; };
 		89E8373E25D47159008525DA /* PodcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8373D25D47159008525DA /* PodcastView.swift */; };
 		89E8374625D48B66008525DA /* PodcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8374525D48B66008525DA /* PodcastViewModel.swift */; };
@@ -92,8 +98,14 @@
 		89ACD27525D007E700C7FD8A /* PersonalPlaylistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPlaylistCell.swift; sourceTree = "<group>"; };
 		89ACD27E25D0080800C7FD8A /* ViewModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		89AF379625D72675007FFE0B /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		89B5FF3C25EC275A00020FC8 /* blackbear_fashion-week.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "blackbear_fashion-week.mp3"; path = "../../../../blackbear_fashion-week.mp3"; sourceTree = "<group>"; };
+		89B5FF4125EC296F00020FC8 /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
 		89CAB6D625D06DDA004F1511 /* PlaylistCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCollection.swift; sourceTree = "<group>"; };
 		89CAB6E125D0920E004F1511 /* PlaylistCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionView.swift; sourceTree = "<group>"; };
+		89D6EEF225ED0699001E7B19 /* Autoterapia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Autoterapia.mp3; path = ../../../../Autoterapia.mp3; sourceTree = "<group>"; };
+		89D6EEF725ED069E001E7B19 /* Bill Murray.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bill Murray.mp3"; path = "../../../../Bill Murray.mp3"; sourceTree = "<group>"; };
+		89D6EEF825ED069E001E7B19 /* Ruido Blanco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Ruido Blanco.mp3"; path = "../../../../Ruido Blanco.mp3"; sourceTree = "<group>"; };
+		89D6EEF925ED069E001E7B19 /* El Pozo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "El Pozo.mp3"; path = "../../../../El Pozo.mp3"; sourceTree = "<group>"; };
 		89E8373525D46ED7008525DA /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
 		89E8373D25D47159008525DA /* PodcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastView.swift; sourceTree = "<group>"; };
 		89E8374525D48B66008525DA /* PodcastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastViewModel.swift; sourceTree = "<group>"; };
@@ -182,6 +194,7 @@
 		89330D6325CB37FB008DDC5E /* SpotifyClone */ = {
 			isa = PBXGroup;
 			children = (
+				89B5FF3B25EC274000020FC8 /* Songs */,
 				8905966825D00D8600465328 /* Data */,
 				89330D9225CB3FD8008DDC5E /* Views */,
 				8905967125D00E0700465328 /* Helper */,
@@ -255,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				897634B025E8524D00E6F974 /* AudioPlayerView.swift */,
+				89B5FF4125EC296F00020FC8 /* AudioPlayerViewModel.swift */,
 				897634C325E860E500E6F974 /* AudioPlayerContentView.swift */,
 			);
 			path = AudioPlayer;
@@ -279,6 +293,18 @@
 				89ACD26D25D007C700C7FD8A /* PlaylistCollectionCell.swift */,
 			);
 			path = PlaylistCollections;
+			sourceTree = "<group>";
+		};
+		89B5FF3B25EC274000020FC8 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				89D6EEF725ED069E001E7B19 /* Bill Murray.mp3 */,
+				89D6EEF925ED069E001E7B19 /* El Pozo.mp3 */,
+				89D6EEF825ED069E001E7B19 /* Ruido Blanco.mp3 */,
+				89D6EEF225ED0699001E7B19 /* Autoterapia.mp3 */,
+				89B5FF3C25EC275A00020FC8 /* blackbear_fashion-week.mp3 */,
+			);
+			path = Songs;
 			sourceTree = "<group>";
 		};
 		89E8373425D46E8A008525DA /* PodcastPlaylist */ = {
@@ -394,8 +420,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D6EEF325ED0699001E7B19 /* Autoterapia.mp3 in Resources */,
 				89330D6C25CB37FD008DDC5E /* Preview Assets.xcassets in Resources */,
+				89D6EEFB25ED069E001E7B19 /* Ruido Blanco.mp3 in Resources */,
 				89330D6925CB37FD008DDC5E /* Assets.xcassets in Resources */,
+				89D6EEFA25ED069E001E7B19 /* Bill Murray.mp3 in Resources */,
+				89B5FF3D25EC275A00020FC8 /* blackbear_fashion-week.mp3 in Resources */,
+				89D6EEFC25ED069E001E7B19 /* El Pozo.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +467,7 @@
 				8924AA9D25D5DD6300F5F9F3 /* PlaylistContentCell.swift in Sources */,
 				89ACD26F25D007C700C7FD8A /* PlaylistCollectionCell.swift in Sources */,
 				8945D22325CC903F0051DEA5 /* HomeView.swift in Sources */,
+				89B5FF4225EC296F00020FC8 /* AudioPlayerViewModel.swift in Sources */,
 				897634B125E8524D00E6F974 /* AudioPlayerView.swift in Sources */,
 				8905966A25D00D9300465328 /* Playlist.swift in Sources */,
 				8924AA9325D5CA5000F5F9F3 /* PlaylistContentView.swift in Sources */,

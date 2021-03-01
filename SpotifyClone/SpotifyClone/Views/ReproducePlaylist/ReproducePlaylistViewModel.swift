@@ -10,14 +10,12 @@ import SwiftUI
 
 class ReproducePlaylistViewModel: ObservableObject {
     var playlist: Playlist
-    var primaryColorOfTheImage: UIColor
     
     init(playlist: Playlist) {
         self.playlist = playlist
-        primaryColorOfTheImage = UIImage(named: playlist.image)?.averageColor ?? UIColor(Color("black"))
     }
     
     func getPrimaryColorOfTheImage() -> UIColor {
-        return primaryColorOfTheImage
+        return UIImage(named: playlist.image)?.averageColor ?? UIColor(Color("black"))
     }
 }
