@@ -43,7 +43,7 @@ struct ReproducePlaylistView: View {
             
             GeometryReader { geometry in
                 ScrollView() {
-                    VStack {
+                    LazyVStack {
                         ImageContent(image: reproducePlaylistVM.playlist.image)
                             .frame(width: geometry.size.width - geometry.size.width/5,
                                    height: geometry.size.width - geometry.size.width/3)
@@ -53,10 +53,9 @@ struct ReproducePlaylistView: View {
                                             lenght: reproducePlaylistVM.playlist.lenght)
                         
                         PlaylistContentRow(playlist: reproducePlaylistVM.playlist)
-                            .frame(width: geometry.size.width, height: geometry.size.height)
+                        
                     }
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
             }
         }
         .frame(width: UIScreen.screenWidth)

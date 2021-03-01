@@ -11,18 +11,17 @@ struct PlaylistContentRow: View {
     var playlist: Playlist
     
     var body: some View {
-        GeometryReader { geometry in
-            LazyVStack(spacing:0) {
-                ForEach(0..<playlist.songs.count) { index in
-                    NavigationLink(
-                        destination: AudioPlayerView(playlist: playlist, selectedSongPosition: index),
-                        label: {
-                            PlaylistContentCell(image: playlist.songs[index].image,
-                                                name: playlist.songs[index].name,
-                                                artist: playlist.songs[index].artists)
-                                .frame(width: geometry.size.width, height: geometry.size.height/10)
-                        })
-                }
+        LazyVStack(spacing:0) {
+            ForEach(0..<playlist.songs.count) { index in
+                NavigationLink(
+                    destination: AudioPlayerView(playlist: playlist, selectedSongPosition: index),
+                    label: {
+                        PlaylistContentCell(image: playlist.songs[index].image,
+                                            name: playlist.songs[index].name,
+                                            artist: playlist.songs[index].artists)
+                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/12)
+                    })
+
             }
         }
     }
