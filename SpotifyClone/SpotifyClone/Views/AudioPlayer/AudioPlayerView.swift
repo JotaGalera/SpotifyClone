@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AudioPlayerView: View {
+    @Environment(\.presentationMode) var presentationMode
     var audioPlayerVM: AudioPlayerViewModel
     var backgroundColor: Gradient
     
@@ -27,7 +28,7 @@ struct AudioPlayerView: View {
             VStack {
                 Spacer()
                 
-                AudioPlayerHeaderView(playlistTitle: audioPlayerVM.getPlaylistName())
+                AudioPlayerHeaderView(presentationMode: presentationMode, playlistTitle: audioPlayerVM.getPlaylistName())
                     
                 Spacer()
                 
@@ -49,16 +50,21 @@ struct AudioPlayerView: View {
                 audioPlayerVM.play()
             }
         }
+        .gesture(
+            DragGesture(minimumDistance: 50)
+                .onEnded { _ in presentationMode.wrappedValue.dismiss() }
+        )
     }
 }
 
 struct AudioPlayerHeaderView: View {
+    var presentationMode: Binding<PresentationMode>
     var playlistTitle: String
     
     var body: some View {
         HStack {
             Button(action: {
-                //
+                presentationMode.wrappedValue.dismiss()
             }, label: {
                 Image(systemName: "chevron.down")
             })
