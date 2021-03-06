@@ -83,12 +83,16 @@ class AudioPlayerSingleton {
     private init(){}
     
     func play(songName: String) {
-        guard let path = Bundle.main.path(forResource: songName, ofType: "mp3") else { return }
+        guard let song = NSDataAsset(name: songName) else { return }
         self.isPlaying = true
-        let url = URL(fileURLWithPath: path)
         do {
-            self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+            self.audioPlayer = try AVAudioPlayer(data: song.data)
             self.audioPlayer.prepareToPlay()
+            do {
+                  try AVAudioSession.sharedInstance().setCategory(.playback)
+               } catch(let error) {
+                   print(error.localizedDescription)
+               }
             self.audioPlayer.play()
             self.isPlaying = true
         } catch {
