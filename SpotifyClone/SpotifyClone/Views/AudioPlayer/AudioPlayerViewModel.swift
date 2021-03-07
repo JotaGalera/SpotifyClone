@@ -13,6 +13,9 @@ class AudioPlayerViewModel: ObservableObject {
     var playlist: Playlist
     var currentSongPosition: Int?
     
+    @Published var currentProgressBarSong: CGFloat = 0
+    @Published var currentTimeSong: Double = 1
+    @Published var durationTimeSong: Double = 0
     @Published var isPlaying: Bool = false
     
     init(playlist: Playlist, currentSongPosition: Int?) {
@@ -72,6 +75,28 @@ class AudioPlayerViewModel: ObservableObject {
     private func pause() {
         AudioPlayerSingleton.instance.pause()
         isPlaying = AudioPlayerSingleton.instance.isPlaying
+    }
+    
+    func setProgressSong() {
+        setCurrentTimeSong()
+        setProgressBarSong()
+    }
+    
+    func setDurationSong() {
+        durationTimeSong = AudioPlayerSingleton.instance.audioPlayer.duration
+    }
+    
+    private func setCurrentTimeSong() {
+        if isPlaying {
+            currentTimeSong = AudioPlayerSingleton.instance.audioPlayer.currentTime
+        }
+    }
+    
+    private func setProgressBarSong() {
+        let currentTimeSong = AudioPlayerSingleton.instance.audioPlayer.currentTime
+        let durationSong = AudioPlayerSingleton.instance.audioPlayer.duration
+        
+        currentProgressBarSong = CGFloat(currentTimeSong / durationSong)
     }
 }
 

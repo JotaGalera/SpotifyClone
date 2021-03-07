@@ -27,7 +27,6 @@ struct AudioPlayerView: View {
             
             VStack {
                 Spacer()
-                
                 AudioPlayerHeaderView(presentationMode: presentationMode, playlistTitle: audioPlayerVM.getPlaylistName())
                     
                 Spacer()

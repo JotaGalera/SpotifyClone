@@ -10,6 +10,7 @@ import AVFoundation
 
 struct AudioPlayerContentView: View {
     @StateObject var audioPlayerVM: AudioPlayerViewModel
+    @State var currentProgressBarSong: Double = 0
     
     var body: some View {
         GeometryReader { geometry in
@@ -41,7 +42,7 @@ struct AudioPlayerContentView: View {
                         .frame(width: geometry.size.width/1.1, height: 6)
                     
                     Capsule().fill(Color.green)
-                        .frame(width: geometry.size.width/1.1/2, height: 6)
+                        .frame(width: geometry.size.width/1.1 * audioPlayerVM.currentProgressBarSong, height: 6)
                     
                     Circle()
                         .frame(width: 6*2.5, height: 6*2.5)
@@ -49,12 +50,12 @@ struct AudioPlayerContentView: View {
                 }
                 
                 HStack {
-                    Text("2:50")
+                    Text("\(audioPlayerVM.currentTimeSong)")
                         .font(.footnote)
                     
                     Spacer()
                     
-                    Text("-2:50")
+                    Text("\(audioPlayerVM.durationTimeSong)")
                         .font(.footnote)
                 }
                 .padding(.leading)
@@ -114,7 +115,20 @@ struct AudioPlayerContentView: View {
                 }
                 .padding()
             }
-            
+        }
+        .onAppear(perform: {
+            getProgressSong()
+        })
+    }
+    
+    private func getProgressSong() {
+        getProgressTimeSong()
+        audioPlayerVM.setDurationSong()
+    }
+    
+    private func getProgressTimeSong() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            audioPlayerVM.setProgressSong()
         }
     }
 }
