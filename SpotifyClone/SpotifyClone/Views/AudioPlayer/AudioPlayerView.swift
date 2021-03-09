@@ -47,12 +47,20 @@ struct AudioPlayerView: View {
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
             .onAppear() {
                 audioPlayerVM.play()
+                audioPlayerVM.setSongLength()
+                getProgressSong()
             }
         }
         .gesture(
             DragGesture(minimumDistance: 50)
                 .onEnded { _ in presentationMode.wrappedValue.dismiss() }
         )
+    }
+    
+    private func getProgressSong() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            audioPlayerVM.setSongProgress()
+        }
     }
 }
 

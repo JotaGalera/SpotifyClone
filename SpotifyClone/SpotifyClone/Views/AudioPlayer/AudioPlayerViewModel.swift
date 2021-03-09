@@ -14,8 +14,8 @@ class AudioPlayerViewModel: ObservableObject {
     var currentSongPosition: Int?
     
     @Published var currentProgressBarSong: CGFloat = 0
-    @Published var currentTimeSong: Double = 1
-    @Published var durationTimeSong: Double = 0
+    @Published var currentSongProgress: String = "00:00"
+    @Published var currentSongLength: String = "00:00"
     @Published var isPlaying: Bool = false
     
     init(playlist: Playlist, currentSongPosition: Int?) {
@@ -77,22 +77,27 @@ class AudioPlayerViewModel: ObservableObject {
         isPlaying = AudioPlayerSingleton.instance.isPlaying
     }
     
-    func setProgressSong() {
-        setCurrentTimeSong()
-        setProgressBarSong()
+    func setSongLength() {
+        let minutes = Int(AudioPlayerSingleton.instance.audioPlayer.duration.rounded()) / 60
+        let seconds = Int(AudioPlayerSingleton.instance.audioPlayer.duration.rounded()) % 60
+        currentSongLength = "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))"
     }
     
-    func setDurationSong() {
-        durationTimeSong = AudioPlayerSingleton.instance.audioPlayer.duration
+    func setSongProgress() {
+        setCurrentTimeSong()
+        setSongProgressBar()
     }
     
     private func setCurrentTimeSong() {
         if isPlaying {
-            currentTimeSong = AudioPlayerSingleton.instance.audioPlayer.currentTime
+            let minutes = Int(AudioPlayerSingleton.instance.audioPlayer.currentTime.rounded()) / 60
+            let seconds = Int(AudioPlayerSingleton.instance.audioPlayer.currentTime.rounded()) % 60
+            
+            currentSongProgress = "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))"
         }
     }
     
-    private func setProgressBarSong() {
+    private func setSongProgressBar() {
         let currentTimeSong = AudioPlayerSingleton.instance.audioPlayer.currentTime
         let durationSong = AudioPlayerSingleton.instance.audioPlayer.duration
         

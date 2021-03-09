@@ -50,12 +50,12 @@ struct AudioPlayerContentView: View {
                 }
                 
                 HStack {
-                    Text("\(audioPlayerVM.currentTimeSong)")
+                    Text("\(audioPlayerVM.currentSongProgress)")
                         .font(.footnote)
                     
                     Spacer()
                     
-                    Text("\(audioPlayerVM.durationTimeSong)")
+                    Text("\(audioPlayerVM.currentSongLength)")
                         .font(.footnote)
                 }
                 .padding(.leading)
@@ -115,20 +115,6 @@ struct AudioPlayerContentView: View {
                 }
                 .padding()
             }
-        }
-        .onAppear(perform: {
-            getProgressSong()
-        })
-    }
-    
-    private func getProgressSong() {
-        getProgressTimeSong()
-        audioPlayerVM.setDurationSong()
-    }
-    
-    private func getProgressTimeSong() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            audioPlayerVM.setProgressSong()
         }
     }
 }
