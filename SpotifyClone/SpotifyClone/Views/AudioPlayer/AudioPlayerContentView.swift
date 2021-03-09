@@ -46,7 +46,7 @@ struct AudioPlayerContentView: View {
                     
                     Circle()
                         .frame(width: 6*2.5, height: 6*2.5)
-                        .padding(.leading, geometry.size.width/2.3)
+                        .padding(.leading, geometry.size.width/1.1 * audioPlayerVM.currentProgressBarSong)
                 }
                 
                 HStack {
